@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Poppet</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
+</head>
+  * {
+  box-sizing: border-box;
+  font-family: 'Baloo 2', cursive;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #ffd6e8, #cdb4ff, #bde0fe);
+  height: 100vh;
+}
+
+.app {
+  position: relative;
+  padding: 20px;
+  text-align: center;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background-image: url("background-placeholder.png");
+  background-size: cover;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ff4d8d;
+  text-shadow: 2px 2px #fff;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #6a4c93;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 25px;
+  padding: 30px;
+  margin: 20px auto;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.category {
+  color: #ff7ab6;
+  font-size: 1.5rem;
+}
+
+.hint {
+  font-size: 1.3rem;
+  margin-top: 15px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.buzz {
+  background: #ffafcc;
+}
+
+.correct {
+  background: #b9fbc0;
+}
+
+.wrong {
+  background: #ffc8dd;
+}
+
+footer {
+  margin-top: 30px;
+  color: #5a189a;
+}
+
+<body>
+
+  <div class="app">
+
+    <!-- Background Layer -->
+    <div class="background"></div>
+
+    <!-- Header -->
+    <header>
+      <h1>POPPET</h1>
+      <p class="subtitle">Guess fast. Pop off.</p>
+    </header>
+
+    <!-- Card Area -->
+    <section class="card">
+      <h2 class="category">Anime</h2>
+      <p class="hint">Hint will appear here...</p>
+    </section>
+
+    <!-- Buttons -->
+    <section class="buttons">
+      <button class="buzz">BUZZ</button>
+      <button class="correct">✔ Correct</button>
+      <button class="wrong">✖ Next Hint</button>
+    </section>
+
+    <!-- Score Area -->
+    <footer>
+      <p>Scoreboard Placeholder</p>
+    </footer>
+
+  </div>
+  {
+  "id": 1,
+  "category": "Anime",
+  "mode": "Guess the Character",
+  "answer": "Naruto Uzumaki",
+  "hints": {
+    "hard": "This character dreams of becoming the leader of their village.",
+    "medium": "They wear orange and are associated with a powerful fox.",
+    "easy": "Their signature move is the Rasengan."
+  }
+}
+  [
+  {
+    "id": 1,
+    "category": "Anime",
+    "mode": "Guess the Character",
+    "answer": "Naruto Uzumaki",
+    "hints": {
+      "hard": "This character wants recognition more than anything.",
+      "medium": "They are the host of a powerful tailed beast.",
+      "easy": "They wear orange and shout their dreams out loud."
+    }
+  },
+  {
+    "id": 2,
+    "category": "Anime",
+    "mode": "Guess the Character",
+    "answer": "Monkey D. Luffy",
+    "hints": {
+      "hard": "This character has a strange body due to a mysterious fruit.",
+      "medium": "They are the captain of a pirate crew.",
+      "easy": "Their dream is to become the King of the Pirates."
+    }
+  },
+  {
+    "id": 3,
+    "category": "Anime",
+    "mode": "Guess the Character",
+    "answer": "Goku",
+    "hints": {
+      "hard": "This character is not originally from Earth.",
+      "medium": "They can transform to increase their power.",
+      "easy": "They love fighting and eating."
+    }
+  },
+  {
+    "id": 4,
+    "category": "Anime",
+    "mode": "Guess the Character",
+    "answer": "Sailor Moon",
+    "hints": {
+      "hard": "This character draws power from celestial bodies.",
+      "medium": "They fight evil in a sailor-style outfit.",
+      "easy": "They protect love and justice."
+    }
+  },
+  {
+    "id": 5,
+    "category": "Anime",
+    "mode": "Guess the Character",
+    "answer": "Tanjiro Kamado",
+    "hints": {
+      "hard": "This character has a strong sense of smell.",
+      "medium": "They fight demons using a blade.",
+      "easy": "They want to save their sister."
+    }
+  }
+]
+[
+  {
+    "id": 6,
+    "category": "Disney",
+    "mode": "Guess the Character",
+    "answer": "Simba",
+    "hints": {
+      "hard": "This character runs away from responsibility.",
+      "medium": "They are the child of a powerful ruler.",
+      "easy": "They are a lion."
+    }
+  },
+  {
+    "id": 7,
+    "category": "Disney",
+    "mode": "Guess the Character",
+    "answer": "Elsa",
+    "hints": {
+      "hard": "This character struggles to control their powers.",
+      "medium": "They accidentally freeze things when emotional.",
+      "easy": "They create ice and snow."
+    }
+  },
+  {
+    "id": 8,
+    "category": "Disney",
+    "mode": "Guess the Character",
+    "answer": "Aladdin",
+    "hints": {
+      "hard": "This character lives by stealing to survive.",
+      "medium": "They meet a magical being in a lamp.",
+      "easy": "They ride a flying carpet."
+    }
+  },
+  {
+    "id": 9,
+    "category": "Disney",
+    "mode": "Guess the Character",
+    "answer": "Mulan",
+    "hints": {
+      "hard": "This character disguises themselves to protect family honor.",
+      "medium": "They join the military secretly.",
+      "easy": "They fight in a war in ancient China."
+    }
+  }
+]
+[
+  {
+    "id": 10,
+    "category": "Marvel",
+    "mode": "Guess the Character",
+    "answer": "Spider-Man",
+    "hints": {
+      "hard": "This character gained abilities from an accident.",
+      "medium": "They struggle to balance life and responsibility.",
+      "easy": "They shoot webs."
+    }
+  },
+  {
+    "id": 11,
+    "category": "Marvel",
+    "mode": "Guess the Character",
+    "answer": "Iron Man",
+    "hints": {
+      "hard": "This character is a genius billionaire.",
+      "medium": "They rely on technology to fight.",
+      "easy": "They wear a red and gold suit."
+    }
+  },
+  {
+    "id": 12,
+    "category": "DC",
+    "mode": "Guess the Character",
+    "answer": "Batman",
+    "hints": {
+      "hard": "This character has no superpowers.",
+      "medium": "They operate mostly at night.",
+      "easy": "They are associated with bats."
+    }
+  },
+  {
+    "id": 13,
+    "category": "DC",
+    "mode": "Guess the Character",
+    "answer": "Wonder Woman",
+    "hints": {
+      "hard": "This character comes from an isolated society.",
+      "medium": "They wield a magical lasso.",
+      "easy": "They are an Amazon warrior."
+    }
+  }
+]
+
+
+</body>
+</html>
