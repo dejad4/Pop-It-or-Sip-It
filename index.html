@@ -237,6 +237,106 @@ button:hover {
 .wrong {
   background: #ffc8dd;
 }
+  // ==========================
+// CARD DATA (SAMPLE)
+// ==========================
+const cards = [
+  {
+    id: 1,
+    category: "Anime",
+    answer: "Naruto Uzumaki",
+    hints: [
+      "This character wants recognition more than anything.",
+      "They are the host of a powerful tailed beast.",
+      "They wear orange and shout their dreams out loud."
+    ]
+  },
+  {
+    id: 2,
+    category: "Disney",
+    answer: "Elsa",
+    hints: [
+      "This character struggles to control their powers.",
+      "They accidentally freeze things when emotional.",
+      "They create ice and snow."
+    ]
+  }
+  // add more cards here
+];
+
+// ==========================
+// SHUFFLE FUNCTION
+// (Fisher–Yates Shuffle)
+// ==========================
+function shuffleDeck(deck) {
+  for (let i = deck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[j]] = [deck[j], deck[i]];
+  }
+  return deck;
+}
+
+// ==========================
+// GAME STATE
+// ==========================
+let deck = shuffleDeck([...cards]); // copy + shuffle
+let currentCard = null;
+let hintIndex = 0;
+
+// ==========================
+// DRAW A CARD
+// ==========================
+function drawCard() {
+  if (deck.length === 0) {
+    deck = shuffleDeck([...cards]); // reshuffle when empty
+  }
+
+  currentCard = deck.pop();
+  hintIndex = 0;
+
+  updateUI();
+}
+
+// ==========================
+// NEXT HINT
+// ==========================
+function nextHint() {
+  if (!currentCard) return;
+
+  if (hintIndex < currentCard.hints.length - 1) {
+    hintIndex++;
+    updateUI();
+  }
+}
+
+// ==========================
+// UPDATE UI
+// ==========================
+function updateUI() {
+  document.querySelector(".category").textContent = currentCard.category;
+  document.querySelector(".hint").textContent =
+    currentCard.hints[hintIndex];
+}
+
+// ==========================
+// BUTTON HOOKS
+// ==========================
+document.querySelector(".buzz").addEventListener("click", () => {
+  alert("Buzzed! Player answers out loud.");
+});
+
+document.querySelector(".wrong").addEventListener("click", nextHint);
+
+document.querySelector(".correct").addEventListener("click", () => {
+  alert("Correct! Soda pop sound 🍾");
+  drawCard();
+});
+
+// ==========================
+// START GAME
+// ==========================
+drawCard();
+
 
 footer {
   margin-top: 30px;
@@ -273,5 +373,6 @@ footer {
     <footer>
       <p>Scoreboard Placeholder</p>
     </footer>
+  <script src="script.js"></script>
 </body>
 </html>
