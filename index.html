@@ -237,7 +237,44 @@ button:hover {
 .wrong {
   background: #ffc8dd;
 }
-  // ==========================
+
+footer {
+  margin-top: 30px;
+  color: #5a189a;
+}
+</style>
+<body>
+
+  <div class="app">
+
+    <!-- Background Layer -->
+    <div class="background"></div>
+
+    <!-- Header -->
+    <header>
+      <h1>POPPET</h1>
+      <p class="subtitle">Guess fast. Pop off.</p>
+    </header>
+
+    <!-- Card Area -->
+    <section class="card">
+      <h2 class="category">Anime</h2>
+      <p class="hint">Hint will appear here...</p>
+    </section>
+
+    <!-- Buttons -->
+    <section class="buttons">
+      <button class="buzz">BUZZ</button>
+      <button class="correct">✔ Correct</button>
+      <button class="wrong">✖ Next Hint</button>
+    </section>
+  </div>
+  <!-- Score Area -->
+    <footer>
+      <p>Scoreboard Placeholder</p>
+    </footer>
+  <script src="script.js">
+      // ==========================
 // CARD DATA (SAMPLE)
 // ==========================
 const cards = [
@@ -336,43 +373,15 @@ document.querySelector(".correct").addEventListener("click", () => {
 // START GAME
 // ==========================
 drawCard();
+let scores = {
+  player1: 0,
+  player2: 0
+};
+if (hintIndex === 0) points = 3;
+if (hintIndex === 1) points = 2;
+if (hintIndex === 2) points = 1;
+    
 
-
-footer {
-  margin-top: 30px;
-  color: #5a189a;
-}
-</style>
-<body>
-
-  <div class="app">
-
-    <!-- Background Layer -->
-    <div class="background"></div>
-
-    <!-- Header -->
-    <header>
-      <h1>POPPET</h1>
-      <p class="subtitle">Guess fast. Pop off.</p>
-    </header>
-
-    <!-- Card Area -->
-    <section class="card">
-      <h2 class="category">Anime</h2>
-      <p class="hint">Hint will appear here...</p>
-    </section>
-
-    <!-- Buttons -->
-    <section class="buttons">
-      <button class="buzz">BUZZ</button>
-      <button class="correct">✔ Correct</button>
-      <button class="wrong">✖ Next Hint</button>
-    </section>
-  </div>
-  <!-- Score Area -->
-    <footer>
-      <p>Scoreboard Placeholder</p>
-    </footer>
-  <script src="script.js"></script>
+  </script>
 </body>
 </html>
