@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
 </head>
+  <style>
   * {
   box-sizing: border-box;
   font-family: 'Baloo 2', cursive;
@@ -52,98 +53,6 @@ header h1 {
   max-width: 500px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
-
-.category {
-  color: #ff7ab6;
-  font-size: 1.5rem;
-}
-
-.hint {
-  font-size: 1.3rem;
-  margin-top: 15px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-button {
-  padding: 15px 25px;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: transform 0.1s ease;
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-.buzz {
-  background: #ffafcc;
-}
-
-.correct {
-  background: #b9fbc0;
-}
-
-.wrong {
-  background: #ffc8dd;
-}
-
-footer {
-  margin-top: 30px;
-  color: #5a189a;
-}
-
-<body>
-
-  <div class="app">
-
-    <!-- Background Layer -->
-    <div class="background"></div>
-
-    <!-- Header -->
-    <header>
-      <h1>POPPET</h1>
-      <p class="subtitle">Guess fast. Pop off.</p>
-    </header>
-
-    <!-- Card Area -->
-    <section class="card">
-      <h2 class="category">Anime</h2>
-      <p class="hint">Hint will appear here...</p>
-    </section>
-
-    <!-- Buttons -->
-    <section class="buttons">
-      <button class="buzz">BUZZ</button>
-      <button class="correct">✔ Correct</button>
-      <button class="wrong">✖ Next Hint</button>
-    </section>
-
-    <!-- Score Area -->
-    <footer>
-      <p>Scoreboard Placeholder</p>
-    </footer>
-
-  </div>
-  {
-  "id": 1,
-  "category": "Anime",
-  "mode": "Guess the Character",
-  "answer": "Naruto Uzumaki",
-  "hints": {
-    "hard": "This character dreams of becoming the leader of their village.",
-    "medium": "They wear orange and are associated with a powerful fox.",
-    "easy": "Their signature move is the Rasengan."
-  }
-}
-  [
   {
     "id": 1,
     "category": "Anime",
@@ -291,8 +200,84 @@ footer {
       "easy": "They are an Amazon warrior."
     }
   }
-]
+.category {
+  color: #ff7ab6;
+  font-size: 1.5rem;
+}
 
+.hint {
+  font-size: 1.3rem;
+  margin-top: 15px;
+}
 
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.buzz {
+  background: #ffafcc;
+}
+
+.correct {
+  background: #b9fbc0;
+}
+
+.wrong {
+  background: #ffc8dd;
+}
+
+footer {
+  margin-top: 30px;
+  color: #5a189a;
+}
+</style>
+<body>
+
+  <div class="app">
+
+    <!-- Background Layer -->
+    <div class="background"></div>
+
+    <!-- Header -->
+    <header>
+      <h1>POPPET</h1>
+      <p class="subtitle">Guess fast. Pop off.</p>
+    </header>
+
+    <!-- Card Area -->
+    <section class="card">
+      <h2 class="category">Anime</h2>
+      <p class="hint">Hint will appear here...</p>
+    </section>
+
+    <!-- Buttons -->
+    <section class="buttons">
+      <button class="buzz">BUZZ</button>
+      <button class="correct">✔ Correct</button>
+      <button class="wrong">✖ Next Hint</button>
+    </section>
+
+    <!-- Score Area -->
+    <footer>
+      <p>Scoreboard Placeholder</p>
+    </footer>
+
+  </div>
 </body>
 </html>
