@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Card Guessing Game</title>
+<title>Pop it Or Sip it</title>
 
 <style>
   body {
@@ -96,13 +96,12 @@
 
 <div class="container">
 
-  <!-- GAME AREA -->
   <div class="card-area">
     <div id="roleText"></div>
 
-    <div class="card" id="cardText">Waiting for round…</div>
+    <div class="card" id="cardText"></div>
 
-    <button id="buzzerBtn" class="buzzer" onclick="buzzIn()" style="display:none;">
+    <button id="buzzerBtn" class="buzzer" onclick="buzzIn()">
       BUZZ IN
     </button>
 
@@ -114,7 +113,6 @@
     </div>
   </div>
 
-  <!-- LEADERBOARD -->
   <div class="leaderboard">
     <h2>Leaderboard</h2>
     <div id="players"></div>
@@ -130,23 +128,23 @@
     "Describe a celebrity without saying their name"
   ];
 
-  let players = [
-    { name: "Player 1", score: 0 },
-    { name: "Player 2", score: 0 },
-    { name: "Player 3", score: 0 }
-  ];
+  const playerName = localStorage.getItem("playerName");
 
-  let readerIndex = 0;
-  let activeGuesser = null;
+  if (!playerName) {
+    window.location.href = "login.html";
+  }
+
+  let player = {
+    name: playerName,
+    score: 0
+  };
 
   function startRound() {
-    activeGuesser = null;
-
     document.getElementById("cardText").innerText =
       cards[Math.floor(Math.random() * cards.length)];
 
     document.getElementById("roleText").innerText =
-      `${players[readerIndex].name} is the READER`;
+      `${player.name} is guessing`;
 
     document.getElementById("buzzerBtn").style.display = "block";
     document.getElementById("hintControls").style.display = "none";
@@ -155,21 +153,12 @@
   }
 
   function buzzIn() {
-    activeGuesser = (readerIndex + 1) % players.length;
-
     document.getElementById("buzzerBtn").style.display = "none";
     document.getElementById("hintControls").style.display = "block";
-
-    document.getElementById("roleText").innerText =
-      `${players[activeGuesser].name} is guessing`;
   }
 
   function scorePoint(points) {
-    if (activeGuesser !== null) {
-      players[activeGuesser].score += points;
-    }
-
-    readerIndex = (readerIndex + 1) % players.length;
+    player.score += points;
     startRound();
   }
 
@@ -177,12 +166,10 @@
     const container = document.getElementById("players");
     container.innerHTML = "";
 
-    players.forEach(p => {
-      const div = document.createElement("div");
-      div.className = "player";
-      div.innerHTML = `<span>${p.name}</span><span>${p.score}</span>`;
-      container.appendChild(div);
-    });
+    const div = document.createElement("div");
+    div.className = "player";
+    div.innerHTML = `<span>${player.name}</span><span>${player.score}</span>`;
+    container.appendChild(div);
   }
 
   startRound();
