@@ -2,386 +2,141 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Poppet</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
-</head>
+  <title>Pop it or Sip it</title>
+
   <style>
-    {
-  box-sizing: border-box;
-  font-family: 'Baloo 2', cursive;
-}
-
-body {
-  margin: 0;
-  background: linear-gradient(135deg, #ffd6e8, #cdb4ff, #bde0fe);
-  height: 100vh;
-}
-
-.app {
-  position: relative;
-  padding: 20px;
-  text-align: center;
-}
-
-.background {
-  position: fixed;
-  inset: 0;
-  background-image: url("background-placeholder.png");
-  background-size: cover;
-  opacity: 0.15;
-  z-index: -1;
-}
-
-header h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #ff4d8d;
-  text-shadow: 2px 2px #fff;
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  color: #6a4c93;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 25px;
-  padding: 30px;
-  margin: 20px auto;
-  max-width: 500px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-  {
-    "id": 1,
-    "category": "Anime",
-    "mode": "Guess the Character",
-    "answer": "Naruto Uzumaki",
-    "hints": {
-      "hard": "This character wants recognition more than anything.",
-      "medium": "They are the host of a powerful tailed beast.",
-      "easy": "They wear orange and shout their dreams out loud."
+    /* ---------- GLOBAL STYLES ---------- */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-  },
-  {
-    "id": 2,
-    "category": "Anime",
-    "mode": "Guess the Character",
-    "answer": "Monkey D. Luffy",
-    "hints": {
-      "hard": "This character has a strange body due to a mysterious fruit.",
-      "medium": "They are the captain of a pirate crew.",
-      "easy": "Their dream is to become the King of the Pirates."
-    }
-  },
-  {
-    "id": 3,
-    "category": "Anime",
-    "mode": "Guess the Character",
-    "answer": "Goku",
-    "hints": {
-      "hard": "This character is not originally from Earth.",
-      "medium": "They can transform to increase their power.",
-      "easy": "They love fighting and eating."
-    }
-  },
-  {
-    "id": 4,
-    "category": "Anime",
-    "mode": "Guess the Character",
-    "answer": "Sailor Moon",
-    "hints": {
-      "hard": "This character draws power from celestial bodies.",
-      "medium": "They fight evil in a sailor-style outfit.",
-      "easy": "They protect love and justice."
-    }
-  },
-  {
-    "id": 5,
-    "category": "Anime",
-    "mode": "Guess the Character",
-    "answer": "Tanjiro Kamado",
-    "hints": {
-      "hard": "This character has a strong sense of smell.",
-      "medium": "They fight demons using a blade.",
-      "easy": "They want to save their sister."
-    }
-  }
-  {
-    "id": 6,
-    "category": "Disney",
-    "mode": "Guess the Character",
-    "answer": "Simba",
-    "hints": {
-      "hard": "This character runs away from responsibility.",
-      "medium": "They are the child of a powerful ruler.",
-      "easy": "They are a lion."
-    }
-  },
-  {
-    "id": 7,
-    "category": "Disney",
-    "mode": "Guess the Character",
-    "answer": "Elsa",
-    "hints": {
-      "hard": "This character struggles to control their powers.",
-      "medium": "They accidentally freeze things when emotional.",
-      "easy": "They create ice and snow."
-    }
-  },
-  {
-    "id": 8,
-    "category": "Disney",
-    "mode": "Guess the Character",
-    "answer": "Aladdin",
-    "hints": {
-      "hard": "This character lives by stealing to survive.",
-      "medium": "They meet a magical being in a lamp.",
-      "easy": "They ride a flying carpet."
-    }
-  },
-  {
-    "id": 9,
-    "category": "Disney",
-    "mode": "Guess the Character",
-    "answer": "Mulan",
-    "hints": {
-      "hard": "This character disguises themselves to protect family honor.",
-      "medium": "They join the military secretly.",
-      "easy": "They fight in a war in ancient China."
-    }
-  }
-  {
-    "id": 10,
-    "category": "Marvel",
-    "mode": "Guess the Character",
-    "answer": "Spider-Man",
-    "hints": {
-      "hard": "This character gained abilities from an accident.",
-      "medium": "They struggle to balance life and responsibility.",
-      "easy": "They shoot webs."
-    }
-  },
-  {
-    "id": 11,
-    "category": "Marvel",
-    "mode": "Guess the Character",
-    "answer": "Iron Man",
-    "hints": {
-      "hard": "This character is a genius billionaire.",
-      "medium": "They rely on technology to fight.",
-      "easy": "They wear a red and gold suit."
-    }
-  },
-  {
-    "id": 12,
-    "category": "DC",
-    "mode": "Guess the Character",
-    "answer": "Batman",
-    "hints": {
-      "hard": "This character has no superpowers.",
-      "medium": "They operate mostly at night.",
-      "easy": "They are associated with bats."
-    }
-  },
-  {
-    "id": 13,
-    "category": "DC",
-    "mode": "Guess the Character",
-    "answer": "Wonder Woman",
-    "hints": {
-      "hard": "This character comes from an isolated society.",
-      "medium": "They wield a magical lasso.",
-      "easy": "They are an Amazon warrior."
-    }
-  }
-.category {
-  color: #ff7ab6;
-  font-size: 1.5rem;
-}
 
-.hint {
-  font-size: 1.3rem;
-  margin-top: 15px;
-}
+    h1 {
+      text-align: center;
+      padding: 15px;
+      margin: 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
 
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-}
+    /* ---------- MAIN LAYOUT ---------- */
+    .container {
+      display: flex;
+      flex: 1;
+      padding: 20px;
+      gap: 20px;
+    }
 
-button {
-  padding: 15px 25px;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: transform 0.1s ease;
-}
+    /* ---------- CARD AREA ---------- */
+    .card-area {
+      flex: 3;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
 
-button:hover {
-  transform: scale(1.05);
-}
+    .card {
+      width: 250px;
+      height: 350px;
+      background: white;
+      color: black;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      text-align: center;
+      padding: 20px;
+    }
 
-.buzz {
-  background: #ffafcc;
-}
+    /* ---------- LEADERBOARD ---------- */
+    .leaderboard {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 12px;
+      padding: 15px;
+    }
 
-.correct {
-  background: #b9fbc0;
-}
+    .leaderboard h2 {
+      text-align: center;
+      margin-top: 0;
+    }
 
-.wrong {
-  background: #ffc8dd;
-}
+    .player {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
 
-footer {
-  margin-top: 30px;
-  color: #5a189a;
-}
-</style>
+    /* ---------- BUTTON ---------- */
+    .draw-button {
+      position: absolute;
+      bottom: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #4cafef;
+      color: black;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
 <body>
 
-  <div class="app">
+  <h1>My Card Game</h1>
 
-    <!-- Background Layer -->
-    <div class="background"></div>
+  <div class="container">
+    <!-- CARD AREA -->
+    <div class="card-area">
+      <div class="card" id="cardText">
+        Draw a card
+      </div>
+      <button class="draw-button" onclick="drawCard()">Draw Card</button>
+    </div>
 
-    <!-- Header -->
-    <header>
-      <h1>POPPET</h1>
-      <p class="subtitle">Guess fast. Pop off.</p>
-    </header>
-
-    <!-- Card Area -->
-    <section class="card">
-      <h2 class="category">Anime</h2>
-      <p class="hint">Hint will appear here...</p>
-    </section>
-
-    <!-- Buttons -->
-    <section class="buttons">
-      <button class="buzz">BUZZ</button>
-      <button class="correct">✔ Correct</button>
-      <button class="wrong">✖ Next Hint</button>
-    </section>
+    <!-- LEADERBOARD -->
+    <div class="leaderboard">
+      <h2>Leaderboard</h2>
+      <div class="player">
+        <span>Player 1</span>
+        <span>0</span>
+      </div>
+      <div class="player">
+        <span>Player 2</span>
+        <span>0</span>
+      </div>
+    </div>
   </div>
-  <!-- Score Area -->
-    <footer>
-      <p>Scoreboard Placeholder</p>
-    </footer>
-  <script src="script.js">
-      // ==========================
-// CARD DATA (SAMPLE)
-// ==========================
-const cards = [
-  {
-    id: 1,
-    category: "Anime",
-    answer: "Naruto Uzumaki",
-    hints: [
-      "This character wants recognition more than anything.",
-      "They are the host of a powerful tailed beast.",
-      "They wear orange and shout their dreams out loud."
-    ]
-  },
-  {
-    id: 2,
-    category: "Disney",
-    answer: "Elsa",
-    hints: [
-      "This character struggles to control their powers.",
-      "They accidentally freeze things when emotional.",
-      "They create ice and snow."
-    ]
-  }
-  // add more cards here
-];
 
-// ==========================
-// SHUFFLE FUNCTION
-// (Fisher–Yates Shuffle)
-// ==========================
-function shuffleDeck(deck) {
-  for (let i = deck.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [deck[i], deck[j]] = [deck[j], deck[i]];
-  }
-  return deck;
-}
+  <script>
+    const cards = [
+      "Take a sip",
+      "Give a sip",
+      "Truth",
+      "Dare",
+      "Everyone drinks"
+    ];
 
-// ==========================
-// GAME STATE
-// ==========================
-let deck = shuffleDeck([...cards]); // copy + shuffle
-let currentCard = null;
-let hintIndex = 0;
-
-// ==========================
-// DRAW A CARD
-// ==========================
-function drawCard() {
-  if (deck.length === 0) {
-    deck = shuffleDeck([...cards]); // reshuffle when empty
-  }
-
-  currentCard = deck.pop();
-  hintIndex = 0;
-
-  updateUI();
-}
-
-// ==========================
-// NEXT HINT
-// ==========================
-function nextHint() {
-  if (!currentCard) return;
-
-  if (hintIndex < currentCard.hints.length - 1) {
-    hintIndex++;
-    updateUI();
-  }
-}
-
-// ==========================
-// UPDATE UI
-// ==========================
-function updateUI() {
-  document.querySelector(".category").textContent = currentCard.category;
-  document.querySelector(".hint").textContent =
-    currentCard.hints[hintIndex];
-}
-
-// ==========================
-// BUTTON HOOKS
-// ==========================
-document.querySelector(".buzz").addEventListener("click", () => {
-  alert("Buzzed! Player answers out loud.");
-});
-
-document.querySelector(".wrong").addEventListener("click", nextHint);
-
-document.querySelector(".correct").addEventListener("click", () => {
-  alert("Correct! Soda pop sound 🍾");
-  drawCard();
-});
-
-// ==========================
-// START GAME
-// ==========================
-drawCard();
-let scores = {
-  player1: 0,
-  player2: 0
-};
-if (hintIndex === 0) points = 3;
-if (hintIndex === 1) points = 2;
-if (hintIndex === 2) points = 1;
-    
-
+    function drawCard() {
+      const randomIndex = Math.floor(Math.random() * cards.length);
+      document.getElementById("cardText").innerText = cards[randomIndex];
+    }
   </script>
+
 </body>
 </html>
